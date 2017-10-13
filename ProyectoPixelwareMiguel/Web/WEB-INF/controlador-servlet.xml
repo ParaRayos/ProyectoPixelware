@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans.xsd 
+	http://www.springframework.org/schema/context 
+	http://www.springframework.org/schema/context/spring-context.xsd 
+	http://www.springframework.org/schema/mvc 
+	http://www.springframework.org/schema/mvc/spring-mvc.xsd ">
+	
+	<!--  Habilitar escaneo de componentes y configuración por anotaciones -->
+	
+	<context:annotation-config/>
+	<context:component-scan base-package="bsd.spring.mvc.controladores"/>
+	
+	<!--  Configurar ViewResolver -->
+	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<!-- Páginas JSP con librerias JSTL -->
+		<property name="viewClass"
+			value="org.springframework.web.servlet.view.JstlView" />
+			
+		<!-- Prefijo indicando donde estarán las vistas -->
+		<property name="prefix" value="/WEB-INF/vistas/" />
+		
+		<!-- Sufijo indicando extensión de los ficheros físicos -->
+		<property name="suffix" value=".jsp" />
+	</bean>
+</beans>
